@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Premium Counter</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <!-- 배경 애니메이션을 위한 오브젝트 -->
+  <div class="bg-orb orb-1"></div>
+  <div class="bg-orb orb-2"></div>
+
+  <main class="counter">
+    <p class="label">PREMIUM EXPERIENCE</p>
+    <h1 class="title">카운터 2.0</h1>
+
+    <div id="count-container">
+      <div id="count" role="status" aria-live="polite">0</div>
+    </div>
+
+    <div class="buttons">
+      <button id="dec" class="btn-secondary" aria-label="1 감소">−</button>
+      <button id="reset" class="btn-text">Reset</button>
+      <button id="inc" class="btn-primary" aria-label="1 증가">+</button>
+    </div>
+  </main>
+</body>
+</html>
