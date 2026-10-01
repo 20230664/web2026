@@ -1,8 +1,8 @@
-import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
+import { defineConfig } from 'vite'
 
+// https://vite.dev/config/
 export default defineConfig({
   plugins: [react()],
-  // GitHub Pages 저장소명 및 하위 폴더 경로에 맞춰 base 설정
-  base: '/web2026/w26w04-state-hoisting/',
+  base: '/w26w04-state-hoisting/',
 })
