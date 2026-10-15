@@ -24,9 +24,16 @@ export async function clientLoader({ request }: Route.ClientLoaderArgs) {
     results.map(async ({ url }: { url: string }) => {
       const pokemonResponse = await axios.get(url)
       const { id, name, sprites } = pokemonResponse.data
+      const species = await axios.get(`https://pokeapi.co/api/v2/pokemon-species/${id}`)
+      
+      const koreanName = species.data.names.find(
+        (item: { language: { name: string } }) => 
+          item.language.name === "ko"
+      )?.name
+
       return {
         id,
-        name,
+        name: koreanName || name,
         image: sprites.other["official-artwork"].front_default,
       }
     })
