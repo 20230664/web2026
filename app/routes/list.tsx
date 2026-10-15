@@ -1,4 +1,5 @@
-import type { Route } from "./+types/list";
+import { Link } from "react-router"
+import type { Route } from "./+types/list"
 
  const pokemons = [
     { id: 1, name: "이상해씨", image: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png" },
@@ -17,21 +18,27 @@ export function meta({}: Route.MetaArgs) {
   return [
     { title: "포켓몬" },
     { name: "description", content: "포켓몬 도감" },
-  ];
+  ]
 }
 
 export default function List() {
   return (
-    <div>
-      <h2>포켓몬 목록</h2>
-      <div>
+    <div className="min-h-screen bg-slate-50 p-6">
+      <h1 className="text-2xl font-bold mb-6 text-slate-800">포켓몬 목록</h1>
+
+      <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4">
         {pokemons.map((pokemon) => (
-          <div key={pokemon.id}>
-            <img src={pokemon.image} alt={pokemon.name} />
-            <p>{pokemon.name}</p>
-          </div>
+          <Link 
+            to={`detail/${pokemon.id}`}
+            className="bg-white rounded-xl shadow hover:shadow-md transition
+                      p-4 flex flex-col items-center gap-2
+                      border border-slate-200 hover:border-yellow-400"
+            key={pokemon.id}>
+            <img className="w-24 h-24" src={pokemon.image} alt={pokemon.name} />
+            <p className="font-semibold text-slate-700">{pokemon.name}</p>
+          </Link>
         ))}
       </div>
     </div>
-  );
+  )
 }
