@@ -17,7 +17,7 @@ type Pokemon = {
 }
 
 export async function clientLoader({ request }: Route.ClientLoaderArgs) {
-  const response = await axios.get("https://pokeapi.co/api/v2/pokemon?limit=100")
+  const response = await axios.get("https://pokeapi.co/api/v2/pokemon?limit=500")
   const results = response.data.results
 
   const pokemonData: Pokemon[] = await Promise.all(
